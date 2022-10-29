@@ -1,8 +1,8 @@
 import { Popover, Transition } from "@headlessui/react";
 import { Bars3Icon, XCircleIcon } from "@heroicons/react/24/outline";
-import type { NextPage } from "next";
 import Head from "next/head";
 import { Fragment } from "react";
+import { storeFront } from "../utils";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -11,7 +11,62 @@ const navigation = [
   { name: "Example", href: "#" },
 ];
 
-const Home: NextPage = () => {
+const StaticProducts = [
+  {
+    id: 1,
+    name: "Earthen Bottle",
+    href: "#",
+    price: "$48",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
+    imageAlt:
+      "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
+  },
+  {
+    id: 2,
+    name: "Nomad Tumbler",
+    href: "#",
+    price: "$35",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg",
+    imageAlt:
+      "Olive drab green insulated bottle with flared screw lid and flat top.",
+  },
+  {
+    id: 3,
+    name: "Focus Paper Refill",
+    href: "#",
+    price: "$89",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
+    imageAlt:
+      "Person using a pen to cross a task off a productivity paper card.",
+  },
+  {
+    id: 4,
+    name: "Machined Mechanical Pencil",
+    href: "#",
+    price: "$35",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
+  },
+  {
+    id: 5,
+    name: "Lorem ipsum",
+    href: "#",
+    price: "$33",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
+  },
+];
+
+export default function HomePage({ products }) {
+  console.log({ products });
+
   return (
     <div>
       <Head>
@@ -19,9 +74,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="relative overflow-hidden bg-white">
+      <div className="relative overflow-hidden bg-white ">
         <div className="mx-auto max-w-7xl">
-          <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:w-full lg:max-w-2xl lg:pb-28 xl:pb-32">
+          <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:w-full lg:pb-28 xl:pb-32 ">
             <svg
               className="absolute inset-y-0 right-0 hidden w-48 h-full text-white transform translate-x-1/2 lg:block"
               fill="currentColor"
@@ -35,7 +90,7 @@ const Home: NextPage = () => {
             <Popover>
               <div className="relative px-4 pt-6 sm:px-6 lg:px-8">
                 <nav
-                  className="relative flex items-center justify-between sm:h-10 lg:justify-start"
+                  className="relative flex items-center justify-center sm:h-10"
                   aria-label="Global"
                 >
                   <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
@@ -44,7 +99,7 @@ const Home: NextPage = () => {
                         <span className="sr-only">Your Company</span>
                         <img
                           alt="Your Company"
-                          className="w-auto h-8 sm:h-10"
+                          className="justify-start w-auto h-8 sm:h-10"
                           src="https://tailwindui.com/img/logos/mark.svg?color=blue&shade=600"
                         />
                       </a>
@@ -127,34 +182,27 @@ const Home: NextPage = () => {
               </Transition>
             </Popover>
 
-            <main className="px-4 mx-auto mt-10 max-w-7xl sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-              <div className="sm:text-center lg:text-left">
-                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-                  <span className="block xl:inline">Data to enrich your</span>{" "}
+            <main className="items-center px-4 mx-auto mt-10 max-w-7xl sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+              <div className="text-center">
+                <h1 className="mx-32 text-4xl font-bold tracking-tight text-center text-gray-900 sm:text-5xl md:text-6xl">
+                  <span className="block xl:inline">Your next beautiful</span>{" "}
                   <span className="block text-blue-600 xl:inline">
-                    online business
+                    digital design assets
                   </span>
                 </h1>
-                <p className="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
+                <p className="mx-32 mt-5 text-base text-center text-gray-500 md:mt-5 md:text-xl">
                   Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure
                   qui lorem cupidatat commodo. Elit sunt amet fugiat veniam
                   occaecat fugiat aliqua.
                 </p>
-                <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                <div className="flex justify-center mt-8">
                   <div className="rounded-md shadow">
                     <a
                       href="#"
-                      className="flex items-center justify-center w-full px-8 py-3 text-base font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 md:py-4 md:px-10 md:text-lg"
+                      className="flex items-center justify-center w-full px-6 py-4 text-base font-medium text-white bg-gray-900 border border-transparent divide-x divide-gray-600 rounded-md hover:bg-gray-700 md:text-lg"
                     >
-                      Get started
-                    </a>
-                  </div>
-                  <div className="mt-3 sm:mt-0 sm:ml-3">
-                    <a
-                      href="#"
-                      className="flex items-center justify-center w-full px-8 py-3 text-base font-medium text-blue-700 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 md:py-4 md:px-10 md:text-lg"
-                    >
-                      Live demo
+                      <span className="pr-6">Get the bundle</span>
+                      <span className="pl-6">$199</span>
                     </a>
                   </div>
                 </div>
@@ -162,12 +210,34 @@ const Home: NextPage = () => {
             </main>
           </div>
         </div>
-        <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+        {/* <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
           <img
             className="object-cover w-full h-56 sm:h-72 md:h-96 lg:h-full lg:w-full"
             src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
             alt=""
           />
+        </div> */}
+      </div>
+      {/* Products section */}
+      <div className="max-w-2xl px-4 pt-24 mx-auto sm:py-32 sm:px-6 lg:max-w-7xl lg:px-8">
+        <h2 className="sr-only">Products</h2>
+
+        <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3">
+          {StaticProducts.map((product) => (
+            <a key={product.id} href={product.href} className="group">
+              <div className="w-full overflow-hidden bg-gray-200 rounded-lg aspect-w-4 aspect-h-3">
+                <img
+                  src={product.imageSrc}
+                  alt={product.imageAlt}
+                  className="object-cover object-center w-full h-full group-hover:opacity-75"
+                />
+              </div>
+              <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
+              <p className="mt-1 text-lg font-medium text-gray-900">
+                {product.price}
+              </p>
+            </a>
+          ))}
         </div>
       </div>
       <footer className="py-10 bg-white sm:pt-16 lg:pt-24">
@@ -246,8 +316,8 @@ const Home: NextPage = () => {
                     fill="currentColor"
                   >
                     <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
                       d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z"
                     ></path>
                   </svg>
@@ -259,6 +329,42 @@ const Home: NextPage = () => {
       </footer>
     </div>
   );
-};
+}
 
-export default Home;
+const gql = String.raw;
+
+const productsQuery = gql`
+  query Products {
+    products(first: 6) {
+      edges {
+        node {
+          title
+          handle
+          tags
+          priceRangeV2 {
+            minVariantPrice {
+              amount
+            }
+          }
+          images(first: 1) {
+            edges {
+              node {
+                url
+                altText
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export async function getStaticProps() {
+  const { data } = await storeFront(productsQuery);
+  return {
+    props: {
+      products: data.products || null,
+    },
+  };
+}
