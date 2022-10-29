@@ -1,15 +1,8 @@
-import { Popover, Transition } from "@headlessui/react";
-import { Bars3Icon, XCircleIcon } from "@heroicons/react/24/outline";
 import Head from "next/head";
-import { Fragment } from "react";
-import { storeFront } from "../utils";
+import Link from "next/link";
+import { formatPrice, storeFront } from "../utils";
 
-const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Example", href: "#" },
-  { name: "Example", href: "#" },
-  { name: "Example", href: "#" },
-];
+const navigation = [{ name: "Home", href: "/" }];
 
 const StaticProducts = [
   {
@@ -77,129 +70,93 @@ export default function HomePage({ products }) {
       <div className="relative overflow-hidden bg-white ">
         <div className="mx-auto max-w-7xl">
           <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:w-full lg:pb-28 xl:pb-32 ">
-            <svg
-              className="absolute inset-y-0 right-0 hidden w-48 h-full text-white transform translate-x-1/2 lg:block"
-              fill="currentColor"
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              <polygon points="50,0 100,0 50,100 0,100" />
-            </svg>
-
-            <Popover>
-              <div className="relative px-4 pt-6 sm:px-6 lg:px-8">
-                <nav
-                  className="relative flex items-center justify-center sm:h-10"
-                  aria-label="Global"
-                >
-                  <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
-                    <div className="flex items-center justify-between w-full md:w-auto">
-                      <a href="#">
-                        <span className="sr-only">Your Company</span>
-                        <img
-                          alt="Your Company"
-                          className="justify-start w-auto h-8 sm:h-10"
-                          src="https://tailwindui.com/img/logos/mark.svg?color=blue&shade=600"
-                        />
-                      </a>
-                      <div className="flex items-center -mr-2 md:hidden">
-                        <Popover.Button className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
-                          <span className="sr-only">Open main menu</span>
-                          <Bars3Icon className="w-6 h-6" aria-hidden="true" />
-                        </Popover.Button>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="hidden md:ml-10 md:block md:space-x-8 md:pr-4">
-                    {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className="font-medium text-gray-500 hover:text-gray-900"
-                      >
-                        {item.name}
-                      </a>
-                    ))}
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 hover:text-blue-500"
-                    >
-                      Call To Action
+            <header className="pb-6 bg-white lg:pb-0">
+              <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+                <nav className="flex items-center justify-between h-16 lg:h-20">
+                  <div className="flex-shrink-0">
+                    <a href="#" title="" className="flex">
+                      <img
+                        className="w-auto h-8 lg:h-10"
+                        src="/logo.svg"
+                        alt=""
+                      />
                     </a>
                   </div>
+
+                  <button
+                    type="button"
+                    className="inline-flex p-2 text-black transition-all duration-200 rounded-md lg:hidden focus:bg-gray-100 hover:bg-gray-100"
+                  >
+                    <svg
+                      className="block w-6 h-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 8h16M4 16h16"
+                      />
+                    </svg>
+
+                    <svg
+                      className="hidden w-6 h-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+
+                  <a
+                    href="#"
+                    title=""
+                    className="items-center justify-center hidden px-4 py-3 ml-10 text-base font-semibold text-white transition-all duration-200 bg-gray-900 border border-transparent rounded-md lg:inline-flex hover:bg-gray-700 focus:bg-gray-700"
+                    role="button"
+                  >
+                    {" "}
+                    Source Code{" "}
+                  </a>
                 </nav>
+
+                <nav className="pt-4 pb-6 rounded-md lg:hidden"></nav>
               </div>
+            </header>
+            <section className="relative py-12 sm:py-16 lg:pt-20 xl:pb-0">
+              <div className="relative px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+                <div className="max-w-3xl mx-auto text-center">
+                  <p className="inline-flex px-4 py-2 text-base text-gray-900 border border-gray-200 rounded-full font-pj">
+                    Made by Developers, for Developers
+                  </p>
+                  <h1 className="mt-5 text-4xl font-bold leading-tight text-gray-900 sm:text-5xl sm:leading-tight lg:text-6xl lg:leading-tight font-pj">
+                    <span className="block xl:inline">Your next beautiful</span>{" "}
+                    <span className="block bg-clip-text text-transparent bg-gradient-to-r from-[#44BCFF] via-[#3304ec] to-[#8432ea] xl:inline">
+                      digital design assets
+                    </span>
+                  </h1>
+                  <p className="max-w-md mx-auto mt-6 text-base leading-7 text-gray-600 font-inter">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Vehicula massa in enim luctus. Rutrum arcu.
+                  </p>
 
-              <Transition
-                as={Fragment}
-                enter="duration-150 ease-out"
-                enterFrom="opacity-0 scale-95"
-                enterTo="opacity-100 scale-100"
-                leave="duration-100 ease-in"
-                leaveFrom="opacity-100 scale-100"
-                leaveTo="opacity-0 scale-95"
-              >
-                <Popover.Panel
-                  focus
-                  className="absolute inset-x-0 top-0 z-10 p-2 transition origin-top-right transform md:hidden"
-                >
-                  <div className="overflow-hidden bg-white rounded-lg shadow-md ring-1 ring-black ring-opacity-5">
-                    <div className="flex items-center justify-between px-5 pt-4">
-                      <div>
-                        <img
-                          className="w-auto h-8"
-                          src="https://tailwindui.com/img/logos/mark.svg?color=blue&shade=600"
-                          alt=""
-                        />
-                      </div>
-                      <div className="-mr-2">
-                        <Popover.Button className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
-                          <span className="sr-only">Close main menu</span>
-                          <XCircleIcon className="w-6 h-6" aria-hidden="true" />
-                        </Popover.Button>
-                      </div>
-                    </div>
-                    <div className="px-2 pt-2 pb-3 space-y-1">
-                      {navigation.map((item) => (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          className="block px-3 py-2 text-base font-medium text-gray-700 rounded-md hover:bg-gray-50 hover:text-gray-900"
-                        >
-                          {item.name}
-                        </a>
-                      ))}
-                    </div>
+                  <div className="relative inline-flex mt-10 group">
+                    <div className="absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#3304ec] to-[#8432ea] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
+
                     <a
                       href="#"
-                      className="block w-full px-5 py-3 font-medium text-center text-blue-600 bg-gray-50 hover:bg-gray-100"
-                    >
-                      Log in
-                    </a>
-                  </div>
-                </Popover.Panel>
-              </Transition>
-            </Popover>
-
-            <main className="items-center px-4 mx-auto mt-10 max-w-7xl sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-              <div className="text-center">
-                <h1 className="mx-32 text-4xl font-bold tracking-tight text-center text-gray-900 sm:text-5xl md:text-6xl">
-                  <span className="block xl:inline">Your next beautiful</span>{" "}
-                  <span className="block text-blue-600 xl:inline">
-                    digital design assets
-                  </span>
-                </h1>
-                <p className="mx-32 mt-5 text-base text-center text-gray-500 md:mt-5 md:text-xl">
-                  Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure
-                  qui lorem cupidatat commodo. Elit sunt amet fugiat veniam
-                  occaecat fugiat aliqua.
-                </p>
-                <div className="flex justify-center mt-8">
-                  <div className="rounded-md shadow">
-                    <a
-                      href="#"
-                      className="flex items-center justify-center w-full px-6 py-4 text-base font-medium text-white bg-gray-900 border border-transparent divide-x divide-gray-600 rounded-md hover:bg-gray-700 md:text-lg"
+                      title=""
+                      className="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 divide-x divide-gray-600 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                      role="button"
                     >
                       <span className="pr-6">Get the bundle</span>
                       <span className="pl-6">$199</span>
@@ -207,37 +164,50 @@ export default function HomePage({ products }) {
                   </div>
                 </div>
               </div>
-            </main>
+
+              {/* <div className="mt-16 md:mt-20">
+                <img
+                  className="object-cover object-top w-full h-auto mx-auto scale-150 2xl:max-w-screen-2xl xl:scale-100"
+                  src="https://d33wubrfki0l68.cloudfront.net/54780decfb9574945bc873b582cdc6156144a2ba/d9fa1/images/hero/4/illustration.png"
+                  alt=""
+                />
+              </div> */}
+            </section>
           </div>
         </div>
-        {/* <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-          <img
-            className="object-cover w-full h-56 sm:h-72 md:h-96 lg:h-full lg:w-full"
-            src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
-            alt=""
-          />
-        </div> */}
       </div>
       {/* Products section */}
-      <div className="max-w-2xl px-4 pt-24 mx-auto sm:py-32 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div className="max-w-2xl px-4 mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 className="sr-only">Products</h2>
 
         <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3">
-          {StaticProducts.map((product) => (
-            <a key={product.id} href={product.href} className="group">
-              <div className="w-full overflow-hidden bg-gray-200 rounded-lg aspect-w-4 aspect-h-3">
-                <img
-                  src={product.imageSrc}
-                  alt={product.imageAlt}
-                  className="object-cover object-center w-full h-full group-hover:opacity-75"
-                />
-              </div>
-              <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
-              <p className="mt-1 text-lg font-medium text-gray-900">
-                {product.price}
-              </p>
-            </a>
-          ))}
+          {products.edges.map((item) => {
+            const product = item.node;
+            const image = product.images.edges[0].node;
+
+            return (
+              <Link key={product.handle} href={`/products/${product.handle}`}>
+                <div className="group">
+                  <div className="w-full overflow-hidden bg-gray-200 rounded-lg aspect-w-4 aspect-h-3">
+                    <img
+                      src={image.url}
+                      alt={image.altText}
+                      className="object-cover object-center w-full h-full group-hover:opacity-75"
+                    />
+                  </div>
+                  <h3 className="mt-4 font-medium text-gray-700 text-md">
+                    {product.title}
+                  </h3>
+                  <p className="mt-1 text-lg font-medium text-gray-900">
+                    {formatPrice(product.priceRangeV2.minVariantPrice.amount)}
+                  </p>
+                  <p className="mt-1 text-sm font-medium text-gray-400">
+                    {`${product.tags[0]} $`}
+                  </p>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </div>
       <footer className="py-10 bg-white sm:pt-16 lg:pt-24">
