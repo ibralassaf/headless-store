@@ -12,3 +12,10 @@ export async function storeFront(query, variables = {}) {
   });
   return await response.json();
 }
+
+export function formatPrice(price) {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  }).format(price);
+}
