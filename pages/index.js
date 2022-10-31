@@ -58,8 +58,6 @@ const StaticProducts = [
 ];
 
 export default function HomePage({ products }) {
-  console.log({ products });
-
   return (
     <div>
       <Head>
