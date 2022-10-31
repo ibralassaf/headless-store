@@ -39,6 +39,8 @@ Headless Store is a simple headless store using Shopify API to fetch the product
 ## Demo 🚀
 
 <img src="https://i.imgur.com/3jcgJgj_d.webp?maxwidth=760&fidelity=grand" alt="demo">
+Try the App:
+<a href="https://link.ibas.dev/headstore">link.ibas.dev/headstore</a>
 
 ## 💻 Techstack & methodologies
 
