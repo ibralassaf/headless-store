@@ -33,10 +33,6 @@ const license = {
   `,
 };
 
-// function classNames(...classes) {
-//   return classes.filter(Boolean).join(" ");
-// }
-
 export default function ProductsHandle({ product, products }) {
   const [isLoading, setIsLoading] = useState(false);
 
@@ -102,9 +98,9 @@ export default function ProductsHandle({ product, products }) {
             </button>
 
             <a
-              href="https://github.com/ibralassaf"
+              href="https://github.com/ibralassaf/headless-store"
               title=""
-              className="items-center justify-center hidden px-4 py-3 ml-10 text-base font-semibold text-white transition-all duration-200 bg-gray-900 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 lg:inline-flex hover:bg-gray-700 focus:bg-gray-700"
+              className="items-center justify-center hidden px-4 py-3 ml-10 text-base font-semibold text-white transition-all duration-200 duration-300 ease-out bg-gray-900 border border-transparent rounded-md hover:-rotate-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 lg:inline-flex hover:bg-gray-700 focus:bg-gray-700"
               role="button"
               target="_blank"
             >
