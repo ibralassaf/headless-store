@@ -36,6 +36,10 @@
 
 Headless Store is a simple headless store using Shopify API to fetch the products from the shopify store and get the information such as title, description, product image, price also have their oun product page so you can click Pay and redirect you to checkout page for the chosen product
 
+## Demo 🚀
+
+<img src="https://i.imgur.com/3jcgJgj_d.webp?maxwidth=760&fidelity=grand" alt="demo">
+
 ## 💻 Techstack & methodologies
 
 "Headless Store" built with modern tech stack, Here're some of it .
