@@ -74,13 +74,13 @@ export default function HomePage({ products }) {
               <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <nav className="flex items-center justify-between h-16 lg:h-20">
                   <div className="flex-shrink-0">
-                    <a href="#" title="" className="flex">
+                    <Link href="/" title="" className="flex">
                       <img
-                        className="w-auto h-8 lg:h-10"
-                        src="/logo.svg"
+                        className="w-auto h-5 lg:h-10 hover:opacity-90 "
+                        src="/assets/logo.svg"
                         alt=""
                       />
-                    </a>
+                    </Link>
                   </div>
 
                   <button
@@ -95,9 +95,9 @@ export default function HomePage({ products }) {
                       stroke="currentColor"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="M4 8h16M4 16h16"
                       />
                     </svg>
@@ -110,19 +110,20 @@ export default function HomePage({ products }) {
                       stroke="currentColor"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="M6 18L18 6M6 6l12 12"
                       />
                     </svg>
                   </button>
 
                   <a
-                    href="#"
+                    href="https://github.com/ibralassaf"
                     title=""
-                    className="items-center justify-center hidden px-4 py-3 ml-10 text-base font-semibold text-white transition-all duration-200 bg-gray-900 border border-transparent rounded-md lg:inline-flex hover:bg-gray-700 focus:bg-gray-700"
+                    className="items-center justify-center hidden px-4 py-3 ml-10 text-base font-semibold text-white transition-all duration-200 bg-gray-900 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 lg:inline-flex hover:bg-gray-700 focus:bg-gray-700"
                     role="button"
+                    target="_blank"
                   >
                     {" "}
                     Source Code{" "}
@@ -141,7 +142,7 @@ export default function HomePage({ products }) {
                   <h1 className="mt-5 text-4xl font-bold leading-tight text-gray-900 sm:text-5xl sm:leading-tight lg:text-6xl lg:leading-tight font-pj">
                     <span className="block xl:inline">Your next beautiful</span>{" "}
                     <span className="block bg-clip-text text-transparent bg-gradient-to-r from-[#44BCFF] via-[#3304ec] to-[#8432ea] xl:inline">
-                      digital design assets
+                      Digital Design Assets
                     </span>
                   </h1>
                   <p className="max-w-md mx-auto mt-6 text-base leading-7 text-gray-600 font-inter">
@@ -155,7 +156,7 @@ export default function HomePage({ products }) {
                     <a
                       href="#"
                       title=""
-                      className="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 divide-x divide-gray-600 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                      className="relative inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white transition-all duration-200 bg-gray-900 divide-x divide-gray-600 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
                       role="button"
                     >
                       <span className="pr-6">Get the bundle</span>
@@ -202,7 +203,7 @@ export default function HomePage({ products }) {
                     {formatPrice(product.priceRangeV2.minVariantPrice.amount)}
                   </p>
                   <p className="mt-1 text-sm font-medium text-gray-400">
-                    {`${product.tags[0]} $`}
+                    {`${product.tags[0]}`}
                   </p>
                 </div>
               </Link>
@@ -215,9 +216,7 @@ export default function HomePage({ products }) {
           <hr className="mt-16 mb-10 border-gray-200" />
 
           <div className="sm:flex sm:items-center sm:justify-between">
-            <p className="text-sm text-gray-400">
-              © Copyright 2021, All Rights Reserved by Ibrahim Alassaf
-            </p>
+            <p className="text-sm text-gray-400">Made by Ibrahim Alassaf</p>
 
             <ul className="flex items-center mt-5 space-x-3 md:order-3 sm:mt-0">
               <li>
