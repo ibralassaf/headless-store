@@ -2,6 +2,7 @@ import { format } from "date-fns";
 import Link from "next/link";
 import { useState } from "react";
 import { formatPrice, storeFront } from "../../utils";
+import { storeFrontCheckout } from "../../utils/checkout";
 const license = {
   href: "#",
   summary:
@@ -32,11 +33,11 @@ const license = {
   `,
 };
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+// function classNames(...classes) {
+//   return classes.filter(Boolean).join(" ");
+// }
 
-export default function Example({ product }) {
+export default function ProductsHandle({ product, products }) {
   const [isLoading, setIsLoading] = useState(false);
 
   const image = product.images.edges[0].node;
@@ -44,7 +45,7 @@ export default function Example({ product }) {
 
   async function checkout() {
     setIsLoading(true);
-    const { data } = await storeFront(checkoutMutation, {
+    const { data } = await storeFrontCheckout(checkoutMutation, {
       variantId,
     });
     const { webUrl } = data.checkoutCreate.checkout;
@@ -297,7 +298,7 @@ export default function Example({ product }) {
 const gql = String.raw;
 
 export async function getStaticPaths() {
-  const { data } = await storeFront(gql`
+  const { data } = await storeFrontCheckout(gql`
     {
       products(first: 6) {
         edges {
@@ -314,6 +315,18 @@ export async function getStaticPaths() {
       params: { handle: product.node.handle },
     })),
     fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const { data } = await storeFront(singleProductQuery, {
+    handle: params.handle,
+  });
+  return {
+    props: {
+      product: data.productByHandle || null,
+      products: data.products || null,
+    },
   };
 }
 
@@ -359,14 +372,3 @@ const checkoutMutation = gql`
     }
   }
 `;
-
-export async function getStaticProps({ params }) {
-  const { data } = await storeFront(singleProductQuery, {
-    handle: params.handle,
-  });
-  return {
-    props: {
-      product: data.productByHandle,
-    },
-  };
-}
