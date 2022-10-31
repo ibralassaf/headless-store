@@ -4,6 +4,8 @@ export async function storeFront(query, variables = {}) {
     headers: {
       "Content-Type": "application/json",
       "X-Shopify-Access-Token": process.env.NEXT_PUBLIC_ACCESS_TOKEN,
+      "X-Shopify-Storefront-Access-Token":
+        process.env.NEXT_PUBLIC_STOREFRONT_TOKEN,
     },
     body: JSON.stringify({
       query,
