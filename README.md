@@ -44,11 +44,9 @@ Headless Store is a simple headless store using Shopify API to fetch the product
 Try the App:
 <a href="https://link.ibas.dev/headstore">link.ibas.dev/headstore</a>
 
-## 💻 Techstack & methodologies
+## 💻 Tech Stack Used
 
-"Headless Store" built with modern tech stack, Here're some of it .
-
-> Techstack and librarys
+> "Headless Store" built with modern tech stack, Here're some of it .
 
 - ⚙️ **Nextjs 12** (Back-end and routing)
 - ⚙️ **React** (Front-end)
